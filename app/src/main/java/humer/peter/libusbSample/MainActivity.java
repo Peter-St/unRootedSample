@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void JNA (View v) {
-
-        usbDeviceConnection = usbManager.openDevice(usbDevice);
-        unRootedSample.INSTANCE.main(usbDeviceConnection.getFileDescriptor());
-
+        if (usbDevice != null && usbManager.hasPermission(usbDevice)) {
+            usbDeviceConnection = usbManager.openDevice(usbDevice);
+            unRootedSample.INSTANCE.main(usbDeviceConnection.getFileDescriptor());
+        }
     }
 
 
