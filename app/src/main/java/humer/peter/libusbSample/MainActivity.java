@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
         System.loadLibrary("usb1.0");
-        System.loadLibrary("unRootedAndroid");
+        System.loadLibrary("unrooted_android");
     }
 
     @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void JNA (View v) {
         if (usbDevice != null && usbManager.hasPermission(usbDevice)) {
             usbDeviceConnection = usbManager.openDevice(usbDevice);
-            unRootedSample.INSTANCE.main(usbDeviceConnection.getFileDescriptor());
+            unRootedSample.INSTANCE.unrooted_usb_description(usbDeviceConnection.getFileDescriptor());
         }
     }
 
